@@ -11,7 +11,7 @@ class Comment < ActiveRecord::Base
 
   def reject_user(attributes)
     puts "Reject user : #{attributes}"
-    attributes['title'].blank?
+    attributes['user_attributes'].blank?
   end
 
 end

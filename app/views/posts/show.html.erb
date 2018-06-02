@@ -22,3 +22,10 @@
     <li><%= link_to user.username, user_path(user) %></li>
   <% end %>
 </ul>
+
+<%= form_for @comment do |c| %>
+  <%= c.label "Content" %>
+  <%= c.text_area :content %>
+  <%= c.collection_select :user_id, User.all, :id, :username, include_blank: true %>
+  <%= c.submit %>
+<% end %>

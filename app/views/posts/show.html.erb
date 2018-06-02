@@ -23,10 +23,14 @@
   <% end %>
 </ul>
 
-<%= form_for (Comment.new) do |c| %>
+<%= form_for (comment = Comment.new) do |c| %>
   <%= c.hidden_field :post_id, :value => @post.id %>
   <%= c.label "Content" %>
   <%= c.text_area :content %>
   <%= c.collection_select :user_id, User.all, :id, :username, include_blank: true %>
+  <%= c.fields_for :user_attributes, comment.user_id do |user_field| %>
+    <%= user_field.text_field :username %>
+  <% end %>
+
   <%= c.submit %>
 <% end %>

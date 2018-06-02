@@ -6,9 +6,7 @@ class Comment < ActiveRecord::Base
 
   def user_attributes=(user_attributes)
     puts "User Attributes = #{user_attributes}"
-    user_attributes.values.each do |user_attribute|
-      self.user = User.find_or_create_by(user_attribute)
-    end
+    self.user = User.find_or_create_by(user_attributes)
   end
 
 end

@@ -12,7 +12,7 @@
 <h4>All Comments</h4>
 <ul>
   <% @post.comments.each do |comment| %>
-    <li><%= comment.content %></li>
+    <li><%= comment.user.username %> says: <%= comment.content %></li>
   <% end %>
 </ul>
 
@@ -23,7 +23,8 @@
   <% end %>
 </ul>
 
-<%= form_for [@post, Comment.new] do |c| %>
+<%= form_for (Comment.new) do |c| %>
+  <%= c.hidden_field :post_id, :value => @post.id %>
   <%= c.label "Content" %>
   <%= c.text_area :content %>
   <%= c.collection_select :user_id, User.all, :id, :username, include_blank: true %>

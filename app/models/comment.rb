@@ -6,7 +6,7 @@ class Comment < ActiveRecord::Base
 
   def user_attributes=(user_attributes)
     puts "User Attributes = #{user_attributes}"
-    if user_attributes.value is not nil
+    if user_attributes.value != ""
       self.user = User.find_or_create_by(user_attributes)
     end
   end

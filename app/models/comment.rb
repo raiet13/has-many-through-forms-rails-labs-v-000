@@ -9,7 +9,9 @@ class Comment < ActiveRecord::Base
     self.user = User.find_or_create_by(user_attributes)
   end
 
-  def reject_user
+  def reject_user(attributes)
+    puts "Reject user : #{attributes}"
+    attributes['title'].blank?
   end
 
 end

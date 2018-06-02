@@ -9,4 +9,7 @@ class Comment < ActiveRecord::Base
     self.user = User.find_or_create_by(user_attributes)
   end
 
+  def reject_user
+  end
+
 end

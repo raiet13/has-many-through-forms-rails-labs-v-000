@@ -29,7 +29,7 @@
   <%= c.text_area :content %>
   <%= c.collection_select :user_id, User.all, :id, :username, include_blank: true %>
 
-  <%= c.fields_for :users, comment.user_id do |user_field| %>
+  <%= c.fields_for :user_attributes, comment.user_id do |user_field| %>
     <%= user_field.text_field :username %>
   <% end %>
 
